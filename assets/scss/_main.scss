@@ -433,3 +433,35 @@ hr {
 .highlight {
   margin: 30px auto;
 }
+
+.scrolling-text-container {
+  background-color: #FDCA40;
+  padding: 0 10px;
+  overflow: hidden;
+  display: flex;
+
+  h1.scrolling-text {
+    white-space: nowrap;
+    opacity: 0; // İlk başta görünmez
+    transform: translateX(100%); // Başlangıç pozisyonu ekranın dışında
+    animation: scroll-and-stop 5s ease-out forwards;
+
+    @keyframes scroll-and-stop {
+      0% {
+        opacity: 0; // Görünmez başlar
+        transform: translateX(100%); // Ekranın dışında
+      }
+      10% {
+        opacity: 1; // Yavaşça görünür hale gelir
+      }
+      80% {
+        transform: translateX(0); // Ortada duracağı noktaya gelir
+        opacity: 1; // Görünür kalır
+      }
+      100% {
+        transform: translateX(0); // Sabit pozisyonda durur
+        opacity: 1; // Görünür halde kalır
+      }
+    }
+  }
+}
